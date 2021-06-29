@@ -1,9 +1,9 @@
 """Test runrms script, but manual interactive testing is also needed."""
-import subprocess
 import os
-import stat
-from pathlib import Path
 import shutil
+import stat
+import subprocess
+from pathlib import Path
 
 import pytest
 

@@ -1,14 +1,13 @@
-import os
 import logging
+import os
 import shutil
 import subprocess
 from pathlib import Path
 
 import pytest
 
-from subscript.ecldiff2roff import ecldiff2roff
-
 from subscript import getLogger
+from subscript.ecldiff2roff import ecldiff2roff
 
 logger = getLogger("subscript.ecldiff2roff.ecldiff2roff")
 logger.setLevel(logging.INFO)

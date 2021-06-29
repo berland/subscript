@@ -1,8 +1,7 @@
-import logging
 import argparse
-import re
 import io
-
+import logging
+import re
 from typing import List, Union
 
 import pandas as pd

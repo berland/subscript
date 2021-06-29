@@ -1,11 +1,11 @@
 import argparse
 import logging
+from typing import List, Set, Tuple, Union
+
 import dateutil
-
 import xtgeo  # type: ignore
-import subscript
 
-from typing import List, Tuple, Set, Union
+import subscript
 
 logger = subscript.getLogger(__name__)
 

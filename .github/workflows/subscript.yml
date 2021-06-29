@@ -41,6 +41,8 @@ jobs:
 
       - name: Check code style
         run: |
+          pip install isort
+          isort --profile black src tests
           pip install black
           black --check *.py src tests
           pip install flake8
