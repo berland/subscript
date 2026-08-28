@@ -59,8 +59,8 @@ It has capability to:
 
   DEFINE <CASEGEN_CONFIG_FILE>      <RUNPATH>/model.yaml
   DEFINE <CASEGEN_ECLIPSE_TEMPLATE> <CONFIG_PATH>/../input/config/eclipse.tmpl
-  FORWARD_MODEL CASEGEN_UPCARS(<CONFIG>=<CASEGEN_CONFIG_FILE>, \
-        <ECLIPSE_TEMPLATE>=<CASEGEN_ECLIPSE_TEMPLATE>, \
+  FORWARD_MODEL CASEGEN_UPCARS(<CONFIG>=<CASEGEN_CONFIG_FILE>, \\
+        <ECLIPSE_TEMPLATE>=<CASEGEN_ECLIPSE_TEMPLATE>, \\
         <ECLIPSE_OUTPUT>=<ECLIPSE_NAME>-<IENS>)
 
 """,
@@ -231,10 +231,9 @@ argument.
   FORWARD_MODEL ECLCOMPRESS(<FILES>=paths_to_compress.txt)
 
 where ``paths_to_compress.txt`` contains a list of files or filepaths to
-compress.
+compress:
 
 .. code-block:: text
-  :caption: paths_to_compress.txt
 
   eclipse/include/grid/*
   eclipse/include/regions/*
@@ -270,7 +269,7 @@ class Ecldiff2Roff(ForwardModelStepPlugin):
             examples="""
 .. code-block:: console
 
-    FORWARD_MODEL ECLDIFF2ROFF(<ECLROOT>=<ECLBASE>, <PROP>=SGAS, \
+    FORWARD_MODEL ECLDIFF2ROFF(<ECLROOT>=<ECLBASE>, <PROP>=SGAS, \\
         <DIFFDATES>=diff_dates.txt <OUTPUT>=share/results/grids/eclgrid)
 
 where ``ECLBASE`` is already defined in your ERT config, pointing to the Eclipse
@@ -357,7 +356,7 @@ given below will produce the files::
             examples="""
 .. code-block:: console
 
-  FORWARD_MODEL ECLINIT2ROFF(<ECLROOT>=<ECLBASE>, \
+  FORWARD_MODEL ECLINIT2ROFF(<ECLROOT>=<ECLBASE>, \\
       <OUTPUT>=share/results/grids/eclgrid, <PROP>=PORO:PERMX)
 
 where ``ECLBASE`` is already defined in your ERT config, pointing to the Eclipse
@@ -411,7 +410,7 @@ if the file ``dates.txt`` contains only the line::
             examples="""
 .. code-block:: console
 
-  FORWARD_MODEL ECLRST2ROFF(<ECLROOT>=<ECLBASE>, \
+  FORWARD_MODEL ECLRST2ROFF(<ECLROOT>=<ECLBASE>, \\
       <OUTPUT>=share/results/grids/eclgrid, <PROP>=SGAS:SWAT, <DATES>=dates.txt)
 
 where ``ECLBASE`` is already defined in your ERT config, pointing to the Eclipse
@@ -487,9 +486,9 @@ class GravSubsMaps(ForwardModelStepPlugin):
             examples="""
 .. code-block:: console
 
- FORWARD_MODEL GRAV_SUBS_MAPS(<UNRST_FILE>=<ECLBASE>.UNRST, \
+ FORWARD_MODEL GRAV_SUBS_MAPS(<UNRST_FILE>=<ECLBASE>.UNRST, \\
     <GRAVMAPS_CONFIG>=grav_subs_maps.yml)
- FORWARD_MODEL GRAV_SUBS_MAPS(<UNRST_FILE>=<ECLBASE>.UNRST, \
+ FORWARD_MODEL GRAV_SUBS_MAPS(<UNRST_FILE>=<ECLBASE>.UNRST, \\
     <GRAVMAPS_CONFIG>=grav_subs_maps.yml, <OUTPUT_DIR>=share/results/maps)
 
 
@@ -534,15 +533,15 @@ class GravSubsPoints(ForwardModelStepPlugin):
             examples="""
 .. code-block:: console
 
-  FORWARD_MODEL GRAV_SUBS_POINTS(<UNRST_FILE=<ECLBASE>.UNRST, \
+  FORWARD_MODEL GRAV_SUBS_POINTS(<UNRST_FILE=<ECLBASE>.UNRST, \\
       <GRAVPOINTS_CONFIG>=grav_subs_points.yml)
-  FORWARD_MODEL GRAV_SUBS_POINTS(<UNRST_FILE=<ECLBASE>.UNRST, \
-      <GRAVPOINTS_CONFIG>=<CONFIG_PATH>/../input/config/grav_subs_points.yml, \
+  FORWARD_MODEL GRAV_SUBS_POINTS(<UNRST_FILE=<ECLBASE>.UNRST, \\
+      <GRAVPOINTS_CONFIG>=<CONFIG_PATH>/../input/config/grav_subs_points.yml, \\
       <OUTPUT_DIR>=share/results/points)
 
-  FORWARD_MODEL GRAV_SUBS_POINTS(<UNRST_FILE=<ECLBASE>.UNRST, \
+  FORWARD_MODEL GRAV_SUBS_POINTS(<UNRST_FILE=<ECLBASE>.UNRST, \\
       <GRAVPOINTS_CONFIG>=grav_subs_points.yml, <EXTENSION_GENDATA>="_10.txt")
-  FORWARD_MODEL GRAV_SUBS_POINTS(<UNRST_FILE=<ECLBASE>.UNRST, \
+  FORWARD_MODEL GRAV_SUBS_POINTS(<UNRST_FILE=<ECLBASE>.UNRST, \\
       <GRAVPOINTS_CONFIG>=grav_subs_points.yml, <PREFIX_GENDATA>="fieldA_")
 
 where ``ECLBASE`` is already defined in your ERT config, pointing to the flowsimulator
@@ -584,7 +583,7 @@ class InterpRelperm(ForwardModelStepPlugin):
             examples="""
 .. code-block:: console
 
- FORWARD_MODEL INTERP_RELPERM(<INTERP_CONFIG>=interp_relperm.yml, \
+ FORWARD_MODEL INTERP_RELPERM(<INTERP_CONFIG>=interp_relperm.yml, \\
     <ROOT_PATH>=<CONFIG_PATH>)
 
 """,
@@ -655,9 +654,9 @@ class MergeUnrstFiles(ForwardModelStepPlugin):
 .. code-block:: console
 
   DEFINE <RESTART_DIR>      iter-3
-  FORWARD_MODEL MERGE_UNRST_FILES(<UNRST1>=..<RESTART_DIR>/<ECLBASE>.UNRST, \
+  FORWARD_MODEL MERGE_UNRST_FILES(<UNRST1>=..<RESTART_DIR>/<ECLBASE>.UNRST, \\
       <UNRST2>=<ECLBASE>.UNRST, <OUTPUT>=eclipse/model/ECLIPSE_MERGED.UNRST)
-  FORWARD_MODEL MERGE_UNRST_FILES(<UNRST1>=..<RESTART_DIR>/<ECLBASE>.UNRST, \
+  FORWARD_MODEL MERGE_UNRST_FILES(<UNRST1>=..<RESTART_DIR>/<ECLBASE>.UNRST, \\
       <UNRST2>=<ECLBASE>.UNRST, <OUTPUT>=MERGED.UNRST, <PRIORITY>=pred)
 
 """,
@@ -727,7 +726,7 @@ FORWARD_MODEL.
 
 .. code-block:: console
 
-  FORWARD_MODEL PARAMS2CSV(<PARAMETERFILES>=parameters.txt, <OUTPUT>=parameters.csv,\
+  FORWARD_MODEL PARAMS2CSV(<PARAMETERFILES>=parameters.txt, <OUTPUT>=parameters.csv,\\
       <FILENAMECOLUMN>=source_file)
 
 """,
@@ -771,8 +770,8 @@ class Prtvol2Csv(ForwardModelStepPlugin):
             examples="""
 .. code-block:: console
 
-  FORWARD_MODEL PRTVOL2CSV(<DATAFILE>=<ECLBASE>, <REGIONS>=regions.yml, \
-      <FIPNAME>=FIPNUM, <DATE>=first, <DIR>=., \
+  FORWARD_MODEL PRTVOL2CSV(<DATAFILE>=<ECLBASE>, <REGIONS>=regions.yml, \\
+      <FIPNAME>=FIPNUM, <DATE>=first, <DIR>=., \\
       <OUTPUTFILENAME>=simulator_volume_fipnum.csv)
 
 where ``ECLBASE`` is already defined in your ERT config, pointing to the Eclipse
@@ -867,21 +866,21 @@ Example for cases without HM:
 
    or
 
-   FORWARD_MODEL WELLTEST_DPDS(<ECLBASE>, <WELLNAME>=OP_1, <PHASE>=GAS, <BUILDUP_NR>=1,
-                 <OUTPUTDIRECTORY>=dst, <OUTFILESSUFFIX>=OP_1)
+   FORWARD_MODEL WELLTEST_DPDS(<ECLBASE>, <WELLNAME>=OP_1, <PHASE>=GAS, \\
+                 <BUILDUP_NR>=1, <OUTPUTDIRECTORY>=dst, <OUTFILESSUFFIX>=OP_1)
 
 Example for cases with HM:
 --------------------------
 ::
 
-   FORWARD_MODEL WELLTEST_DPDS(<ECLBASE>, <WELLNAME>=OP_1, <PHASE>=GAS, <BUILDUP_NR>=2,
-                 <OUTPUTDIRECTORY>=dst, <OUTFILESSUFFIX>=OP_1_1,
+   FORWARD_MODEL WELLTEST_DPDS(<ECLBASE>, <WELLNAME>=OP_1, <PHASE>=GAS, \\
+                 <BUILDUP_NR>=2, <OUTPUTDIRECTORY>=dst, <OUTFILESSUFFIX>=OP_1_1, \\
                  <GENOBS_RESULTFILE>=OP_1_dpdt_bu2_saphir.txt )
 
 Then set-up of GEN_DATA can be
 ::
 
-   GEN_DATA DPDT_SIM INPUT_FORMAT:ASCII REPORT_STEPS:1
+   GEN_DATA DPDT_SIM INPUT_FORMAT:ASCII REPORT_STEPS:1 \\
             RESULT_FILE:dpdspt_lag2_genobs_OP_1_%d_2
 
 result_file corresponds to dpdspt_lag2_genobs_<WELLNAME>_%d_<BUILDUP_NR>
